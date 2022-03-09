@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.content {
+  max-width: 960px;
+}
