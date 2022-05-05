@@ -83,7 +83,8 @@ export default function videos({ videos, channelInfo, videosInfo }) {
                 <a
                   className={styles.link}
                   href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
-                  target="_blank">
+                  target="_blank"
+                  rel="noreferrer">
                   <Image
                     className={styles.img}
                     src={video.snippet.thumbnails.medium.url}

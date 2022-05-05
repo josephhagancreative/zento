@@ -3,7 +3,6 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Image from "next/image"
 import styles from "../../styles/Slug.module.css"
 import Link from "next/link"
-// import Skeleton from "../../components/Skeleton"
 
 const client = createClient({
   space: process.env.C_SID,
@@ -49,7 +48,7 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export default function RecipeDetails({ post }) {
-  if (!post) return <Skeleton />
+  if (!post) return <>Not found</>
 
   const { featuredImage, title, content, createdAt } = post.fields
   console.log(post)
@@ -64,11 +63,12 @@ export default function RecipeDetails({ post }) {
           src={"https:" + featuredImage.fields.file.url}
           width={featuredImage.fields.file.details.image.width}
           height={featuredImage.fields.file.details.image.height}
+          alt={title}
         />
       </div>
       <p className={styles.createdAt}>Created On: {createdDate}</p>
       <p className={styles.blogContent}>{documentToReactComponents(content)}</p>
-      <Link href={`/blog/`}>
+      <Link href={`/blog/`} passHref>
         <button className={styles.btn}>Back to Blog posts</button>
       </Link>
     </div>
