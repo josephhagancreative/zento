@@ -13,8 +13,8 @@ function about() {
       </p>
       <p>
         I&#39;m still on a journey through Japanese myself. Having passed the
-        JLPT N2 and constantly looking to improve, I've tried a whole load of
-        textbooks, apps, websites, books, games, teachers, lessons, etc. Some
+        JLPT N2 and constantly looking to improve, I&#39;ve tried a whole load
+        of textbooks, apps, websites, books, games, teachers, lessons, etc. Some
         good, some not so good. But here I hope to highlight pros and cons of
         various materials. Also I&#39;d like to make this a sort of record of
         where I&#39;m at and where I want to be. It&#39;s good to have goals!

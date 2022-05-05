@@ -31,7 +31,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function videos({ videos, channelInfo, videosInfo }) {
+export default function Videos({ videos, channelInfo, videosInfo }) {
   // console.log(videosInfo)
   const [searchValue, setSearchValue] = useState("")
   const sortedVids = videosInfo.items
