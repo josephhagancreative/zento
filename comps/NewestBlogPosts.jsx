@@ -3,13 +3,16 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function NewestBlogPosts({ posts }) {
+  const sortedPosts = posts.sort((a, b) =>
+    Number(new Date(b.sys.createdAt) - Number(new Date(a.sys.createdAt)))
+  )
   // console.log(posts)
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Latest Blog Posts</h2>
       <div className={styles.cardContainer}>
         {posts &&
-          posts.map((post) => (
+          sortedPosts.map((post) => (
             <div key={post.sys.id} className={styles.card}>
               <Link href={`/blog/${post.fields.slug}`}>
                 <a>

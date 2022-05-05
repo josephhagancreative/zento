@@ -27,7 +27,7 @@ export async function getStaticProps() {
       channelInfo: channelInfo.items,
       videosInfo: videosInfo,
     },
-    revalidate: 1,
+    revalidate: 60,
   }
 }
 

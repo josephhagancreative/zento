@@ -4,11 +4,14 @@ import Image from "next/image"
 
 export default function BlogList({ posts }) {
   // console.log(posts)
+  const sortedPosts = posts.sort((a, b) =>
+    Number(new Date(b.sys.createdAt) - Number(new Date(a.sys.createdAt)))
+  )
   return (
     <div className={styles.container}>
       <div className={styles.cardContainer}>
         {posts &&
-          posts.map((post) => (
+          sortedPosts.map((post) => (
             <Link href={`/blog/${post.fields.slug}`} key={post.sys.id}>
               <a>
                 <div className={styles.card}>
