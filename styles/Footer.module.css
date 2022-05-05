@@ -1,0 +1,27 @@
+.footerContainer {
+  background-color: var(--primary);
+  /* position: absolute; */
+  width: 100%;
+  bottom: 0;
+}
+
+.footerContent {
+  max-width: 960px;
+  margin: 0 auto;
+  color: var(--white);
+  padding: 0.25rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.icon {
+  font-size: 0.7rem;
+  margin-left: 0.25rem;
+}
+
+.link:hover {
+  color: var(--accent);
+}

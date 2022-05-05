@@ -1,3 +1,4 @@
+import Footer from "./Footer"
 import Navbar from "./Navbar"
 
 export default function Layout({ children }) {
@@ -9,9 +10,7 @@ export default function Layout({ children }) {
 
       <div className="page-content">{children}</div>
 
-      <footer>
-        <p>Copyright 2022 - Zento</p>
-      </footer>
+      <Footer />
     </div>
   )
 }

@@ -1,0 +1,155 @@
+.title,
+.description {
+  text-align: left;
+}
+
+.title {
+  font-family: "Roboto Slab", serif;
+  font-size: 5rem;
+  font-weight: 500;
+  line-height: 5rem;
+  color: var(--primary);
+  z-index: 1;
+}
+
+.hero {
+  height: 100%;
+  width: 100%;
+  max-width: 960px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  /* overflow: hidden; */
+  padding: 1rem 0;
+}
+
+.cta {
+  z-index: 1;
+}
+
+.imageContainer {
+  /* background-image: url(../public/undraw_gaming_re_cma2.svg); */
+  height: 300px;
+  top: 10px;
+  left: 50%;
+  width: 500px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  opacity: 0.5;
+  z-index: 0;
+  overflow: visible;
+}
+
+.description {
+  float: left;
+  margin: 2rem 0;
+  line-height: 1.6;
+  font-size: 1.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  z-index: 1;
+  color: var(--primary);
+  /* letter-spacing: 1px; */
+}
+
+.btn {
+  padding: 0.75rem 2rem;
+  background-color: var(--primary);
+  border: none;
+  color: var(--white);
+  font-family: "Noto Sans", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0.1rem;
+  width: 165px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--accent);
+}
+
+.iconContainer {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.icon {
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.icon:hover {
+  transition: color 200ms ease-in-out;
+}
+
+.twitch:hover {
+  color: #9146ff;
+}
+
+.youtube:hover {
+  color: #ff0000;
+}
+
+.twitter:hover {
+  color: #00acee;
+}
+
+.instagram:hover {
+  color: #8a3ab9;
+}
+
+@media (max-width: 800px) {
+  .container {
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+  .title {
+    font-size: 4.5rem;
+    line-height: 4.5rem;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    overflow: hidden;
+    padding: 1rem;
+  }
+  .imageContainer {
+    height: 200px;
+    width: 400px;
+  }
+  .description {
+    margin: 1rem 0;
+    line-height: 1.5;
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    width: 165px;
+    padding: 1rem 2rem;
+    margin: 0.5rem auto 0.5rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .container {
+    margin: 0 auto;
+    padding: 0;
+  }
+  .title {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+  }
+  .description {
+    margin: 1rem 0;
+    font-size: 1.3rem;
+    line-height: 1.6;
+  }
+
+  .btn {
+    width: 165px;
+    padding: 1rem 2rem;
+    margin: 0.5rem auto 0.5rem;
+  }
+}

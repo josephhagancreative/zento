@@ -1,6 +1,8 @@
 import { createClient } from "contentful"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Image from "next/image"
+import styles from "../../styles/Slug.module.css"
+import Link from "next/link"
 // import Skeleton from "../../components/Skeleton"
 
 const client = createClient({
@@ -49,46 +51,26 @@ export const getStaticProps = async ({ params }) => {
 export default function RecipeDetails({ post }) {
   if (!post) return <Skeleton />
 
-  const { featuredImage, title } = post.fields
+  const { featuredImage, title, content, createdAt } = post.fields
+  console.log(post)
+  const createdDate = new Date(createdAt).toDateString()
 
   return (
-    <div>
-      <div>{title}</div>
-      <div className="banner">
+    <div className={styles.slugContainer}>
+      <div className={styles.banner}>
+        <div className={styles.slugTitle}>{title}</div>
         <Image
+          className={styles.blogImage}
           src={"https:" + featuredImage.fields.file.url}
           width={featuredImage.fields.file.details.image.width}
           height={featuredImage.fields.file.details.image.height}
         />
-        <h2>{title}</h2>
       </div>
-
-      <style jsx>{`
-        h2,
-        h3 {
-          text-transform: uppercase;
-        }
-        .banner h2 {
-          margin: 0;
-          background: #fff;
-          display: inline-block;
-          padding: 20px;
-          position: relative;
-          top: -60px;
-          left: -10px;
-          transform: rotateZ(-1deg);
-          box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-        }
-        .info p {
-          margin: 0;
-        }
-        .info span::after {
-          content: ", ";
-        }
-        .info span:last-child::after {
-          content: ".";
-        }
-      `}</style>
+      <p className={styles.createdAt}>Created On: {createdDate}</p>
+      <p className={styles.blogContent}>{documentToReactComponents(content)}</p>
+      <Link href={`/blog/`}>
+        <button className={styles.btn}>Back to Blog posts</button>
+      </Link>
     </div>
   )
 }
