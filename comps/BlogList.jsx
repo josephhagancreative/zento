@@ -13,11 +13,23 @@ export default function BlogList({ posts }) {
               <a>
                 <div className={styles.card}>
                   <div className={styles.imageContainer}>
-                    <Image
-                      src={`http://${post.fields.thumbnail.fields.file.url}`}
-                      width={1920}
-                      height={1080}
+                    {/* <Image
+                      src={`https://${post.fields.thumbnail.fields.file.url}`}
+                      width={600}
+                      height={338}
                       layout="responsive"
+                      alt={post.fields.title}
+                    /> */}
+                    <Image
+                      className={styles.blogImage}
+                      src={"https:" + post.fields.thumbnail.fields.file.url}
+                      width={
+                        post.fields.thumbnail.fields.file.details.image.width
+                      }
+                      height={
+                        post.fields.thumbnail.fields.file.details.image.height
+                      }
+                      alt={post.fields.title}
                     />
                   </div>
                   <div className="">

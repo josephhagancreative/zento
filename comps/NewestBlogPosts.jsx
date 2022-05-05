@@ -14,11 +14,22 @@ export default function NewestBlogPosts({ posts }) {
               <Link href={`/blog/${post.fields.slug}`}>
                 <a>
                   <div className={styles.imageContainer}>
-                    <Image
+                    {/* <Image
                       src={`http://${post.fields.thumbnail.fields.file.url}`}
                       width={1920}
                       height={1080}
                       layout="responsive"
+                    /> */}
+                    <Image
+                      className={styles.blogImage}
+                      src={"https:" + post.fields.thumbnail.fields.file.url}
+                      width={
+                        post.fields.thumbnail.fields.file.details.image.width
+                      }
+                      height={
+                        post.fields.thumbnail.fields.file.details.image.height
+                      }
+                      alt={post.fields.title}
                     />
                   </div>
                   <p className={styles.blogTitle}>{post.fields.title}</p>

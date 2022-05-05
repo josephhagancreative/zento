@@ -16,7 +16,7 @@ export async function getStaticProps() {
     props: {
       posts: res.items,
     },
-    revalidate: 1,
+    revalidate: 60,
   }
 }
 export default function index({ posts }) {
