@@ -3,6 +3,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Image from "next/image"
 import styles from "../../styles/Slug.module.css"
 import Link from "next/link"
+import Skeleton from "../../comps/Skeleton"
 
 const client = createClient({
   space: process.env.C_SID,
@@ -35,7 +36,7 @@ export const getStaticProps = async ({ params }) => {
   if (!items.length) {
     return {
       redirect: {
-        destination: "/",
+        destination: "/blog",
         permanent: false,
       },
     }
@@ -47,11 +48,11 @@ export const getStaticProps = async ({ params }) => {
   }
 }
 
-export default function RecipeDetails({ post }) {
-  if (!post) return <>Not found</>
+export default function BlogPost({ post }) {
+  if (!post) return <Skeleton />
 
   const { featuredImage, title, content, createdAt } = post.fields
-  console.log(post)
+  // console.log(post)
   const createdDate = new Date(createdAt).toDateString()
 
   return (
@@ -67,7 +68,9 @@ export default function RecipeDetails({ post }) {
         />
       </div>
       <p className={styles.createdAt}>Created On: {createdDate}</p>
-      <p className={styles.blogContent}>{documentToReactComponents(content)}</p>
+      <div className={styles.blogContent}>
+        {documentToReactComponents(content)}
+      </div>
       <Link href={`/blog/`} passHref>
         <button className={styles.btn}>Back to Blog posts</button>
       </Link>

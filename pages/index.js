@@ -55,6 +55,9 @@ export default function Home({ posts, videos, channelInfo, videosInfo }) {
   // console.log(videosInfo)
   const latest = videosInfo.items.length - 1
   // console.log(videosInfo.items[latest])
+  const sortedPosts = posts.sort((a, b) =>
+    Number(new Date(b.sys.createdAt) - Number(new Date(a.sys.createdAt)))
+  )
   return (
     <div>
       <Head>
@@ -68,7 +71,9 @@ export default function Home({ posts, videos, channelInfo, videosInfo }) {
         <Hero />
         <Stats statistics={statistics} />
         <NewestVideo videoData={videosInfo.items[latest]} />
-        <NewestBlogPosts posts={[posts[0], posts[1], posts[2]]} />
+        <NewestBlogPosts
+          posts={[sortedPosts[0], sortedPosts[1], sortedPosts[2]]}
+        />
       </main>
 
       <style jsx>{`

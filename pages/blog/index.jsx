@@ -24,7 +24,7 @@ export default function index({ posts }) {
   return (
     <div>
       <div className={styles.container}>
-        <h1 className={styles.title}>Zento Blog</h1>
+        <h1 className={styles.title}>Blog Posts</h1>
       </div>
       <BlogList posts={posts} />
     </div>

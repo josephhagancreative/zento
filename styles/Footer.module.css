@@ -1,8 +1,9 @@
 .footerContainer {
   background-color: var(--primary);
-  /* position: absolute; */
   width: 100%;
   bottom: 0;
+  position: absolute;
+  height: 50px;
 }
 
 .footerContent {

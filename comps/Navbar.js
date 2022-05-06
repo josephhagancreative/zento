@@ -29,7 +29,7 @@ export default function Navbar() {
         </div>
 
         <div className={styles.linksContainer}>
-          <NavLinks />
+          <NavLinks setShowMenu={setShowMenu} />
         </div>
         {showMenu && (
           <div className={styles.linksDropdown}>
