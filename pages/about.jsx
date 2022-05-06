@@ -13,11 +13,11 @@ function about() {
       </p>
       <p>
         I know it sounds a bit over the top. But I really think language
-        learning is a journey, not a sprint, or even a marathon, because it's
-        not a race. But like all good journeys, I am sure it&#39;s better with
-        others! So I want to make this site, and all my other playforms to be a
-        place for sharing our motivations and helping one another to learn
-        Japanese!
+        learning is a journey, not a sprint, or even a marathon, because
+        it&#39;s not a race. But like all good journeys, I am sure it&#39;s
+        better with others! So I want to make this site, and all my other
+        playforms to be a place for sharing our motivations and helping one
+        another to learn Japanese!
       </p>
       <p>
         I&#39;m still on a journey through Japanese myself. Having passed the
@@ -43,14 +43,16 @@ function about() {
         <a
           href="https://twitter.com/ImJoee"
           className={styles.link}
-          target="_blank">
+          target="_blank"
+          rel="noreferrer">
           twitter
         </a>{" "}
         or my{" "}
         <a
           className={styles.link}
           href="https://github.com/josephhagancreative"
-          target="_blank">
+          target="_blank"
+          rel="noreferrer">
           github
         </a>
       </p>

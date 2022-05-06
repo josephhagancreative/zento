@@ -9,7 +9,7 @@ function contact() {
         I&#39;m working on implementing a contact form for this website, but in
         the meantime please feel free to contact me below on social media.
         <p>
-          I use Twitter the most! I'd love to talk there about games, anime,
+          I use Twitter the most! I&#39;d love to talk there about games, anime,
           manga and Japanese!
         </p>
         <p>

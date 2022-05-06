@@ -10,7 +10,7 @@ export default function NotFound() {
     setTimeout(() => {
       router.push("/")
     }, 4000)
-  }, [])
+  }, [router])
 
   return (
     <div className={styles.notFound}>
@@ -18,7 +18,7 @@ export default function NotFound() {
       <h2>{`That page cannot be found :(`}</h2>
       <p>
         Redirecting to{" "}
-        <Link href="/">
+        <Link href="/" passHref>
           <span className={styles.link}>Homepage</span>
         </Link>{" "}
       </p>
