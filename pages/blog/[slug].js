@@ -64,10 +64,6 @@ export default function BlogPost({ post }) {
         <meta name="description" content={snippet} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1842241795685614"
-          crossorigin="anonymous"></Script>
       </Head>
 
       <div className={styles.slugContainer}>
