@@ -1,6 +1,8 @@
 import { createClient } from "contentful"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Image from "next/image"
+import Head from "next/head"
+import Script from "next/script"
 import styles from "../../styles/Slug.module.css"
 import Link from "next/link"
 import Skeleton from "../../comps/Skeleton"
@@ -51,29 +53,42 @@ export const getStaticProps = async ({ params }) => {
 export default function BlogPost({ post }) {
   if (!post) return <Skeleton />
 
-  const { featuredImage, title, content, createdAt } = post.fields
+  const { featuredImage, title, content, createdAt, snippet } = post.fields
   // console.log(post)
   const createdDate = new Date(createdAt).toDateString()
 
   return (
-    <div className={styles.slugContainer}>
-      <div className={styles.banner}>
-        <div className={styles.slugTitle}>{title}</div>
-        <Image
-          className={styles.blogImage}
-          src={"https:" + featuredImage.fields.file.url}
-          width={featuredImage.fields.file.details.image.width}
-          height={featuredImage.fields.file.details.image.height}
-          alt={title}
-        />
+    <>
+      <Head>
+        <title>Zento | {title}</title>
+        <meta name="description" content={snippet} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" />
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1842241795685614"
+          crossorigin="anonymous"></Script>
+      </Head>
+
+      <div className={styles.slugContainer}>
+        <div className={styles.banner}>
+          <div className={styles.slugTitle}>{title}</div>
+          <Image
+            className={styles.blogImage}
+            src={"https:" + featuredImage.fields.file.url}
+            width={featuredImage.fields.file.details.image.width}
+            height={featuredImage.fields.file.details.image.height}
+            alt={title}
+          />
+        </div>
+        <p className={styles.createdAt}>Created On: {createdDate}</p>
+        <div className={styles.blogContent}>
+          {documentToReactComponents(content)}
+        </div>
+        <Link href={`/blog/`} passHref>
+          <button className={styles.btn}>Back to Blog posts</button>
+        </Link>
       </div>
-      <p className={styles.createdAt}>Created On: {createdDate}</p>
-      <div className={styles.blogContent}>
-        {documentToReactComponents(content)}
-      </div>
-      <Link href={`/blog/`} passHref>
-        <button className={styles.btn}>Back to Blog posts</button>
-      </Link>
-    </div>
+    </>
   )
 }

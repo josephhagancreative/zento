@@ -16,7 +16,7 @@ function about() {
         learning is a journey, not a sprint, or even a marathon, because
         it&#39;s not a race. But like all good journeys, I am sure it&#39;s
         better with others! So I want to make this site, and all my other
-        playforms to be a place for sharing our motivations and helping one
+        platforms to be a place for sharing our motivations and helping one
         another to learn Japanese!
       </p>
       <p>
