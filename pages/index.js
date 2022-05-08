@@ -5,10 +5,15 @@ import Hero from "../comps/Hero"
 import Stats from "../comps/Stats"
 import NewestVideo from "../comps/NewestVideo"
 import NewestBlogPosts from "../comps/NewestBlogPosts"
+import { statistics, videos } from "../data/statistics.js"
+
+// Set Test Mode for Dev
+let test = true
+if (test) {
+  console.log(statistics, videos)
+}
 
 // Google API and PlayList ID
-const YT_PL_API = "https://www.googleapis.com/youtube/v3/playlistItems"
-const PL_ID = "PLvn_3InFKYdzxh5lcuDU80Iy0_PSrDKfk"
 const statisticsURL = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${process.env.YT_CID}&key=${process.env.YT_API}`
 const uploadsURL = `https://youtube.googleapis.com/youtube/v3/search?part=id%2Csnippet&channelId=${process.env.YT_CID}&type=video&maxResults=100&key=${process.env.YT_API}`
 
@@ -23,11 +28,6 @@ export async function getStaticProps() {
   const res = await client.getEntries({ content_type: "post" })
 
   // Google fetch
-  const response = await fetch(
-    `${YT_PL_API}?part=snippet&playlistId=${PL_ID}&maxResults=50&key=${process.env.YT_API}`
-  )
-  const data = await response.json()
-
   const channelRes = await fetch(statisticsURL)
   const channelInfo = await channelRes.json()
   const videosRes = await fetch(uploadsURL)
@@ -36,22 +36,16 @@ export async function getStaticProps() {
   return {
     props: {
       posts: res.items,
-      videos: data.items,
       channelInfo: channelInfo.items,
       videosInfo: videosInfo,
     },
-    revalidate: 1,
+    revalidate: 60,
   }
 }
 
-export default function Home({ posts, videos, channelInfo, videosInfo }) {
-  // console.log(videos)
+export default function Home({ posts, channelInfo, videosInfo }) {
   const { statistics } = channelInfo[0]
-  // console.log(statistics)
-  // console.log(channelInfo)
-  // console.log(videosInfo)
   const latest = videosInfo.items.length - 1
-  // console.log(videosInfo.items[latest])
   const sortedPosts = posts.sort((a, b) =>
     Number(new Date(b.sys.createdAt) - Number(new Date(a.sys.createdAt)))
   )

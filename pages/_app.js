@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
       <Script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1842241795685614"
-        crossorigin="anonymous"
+        crossOrigin="anonymous"
         strategy="beforeInteractive"></Script>
       <Layout>
         <Component {...pageProps} />
