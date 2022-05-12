@@ -8,10 +8,10 @@ import NewestBlogPosts from "../comps/NewestBlogPosts"
 import { statistics, videos } from "../data/statistics.js"
 
 // Set Test Mode for Dev
-let test = true
-if (test) {
-  console.log(statistics, videos)
-}
+// let test = true
+// if (test) {
+//   console.log(statistics, videos)
+// }
 
 // Google API and PlayList ID
 const statisticsURL = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${process.env.YT_CID}&key=${process.env.YT_API}`
@@ -39,7 +39,7 @@ export async function getStaticProps() {
       channelInfo: channelInfo.items,
       videosInfo: videosInfo,
     },
-    revalidate: 60,
+    revalidate: 43200,
   }
 }
 

@@ -11,27 +11,18 @@ const uploadsURL = `https://youtube.googleapis.com/youtube/v3/search?part=id%2Cs
 // Get static Props
 export async function getStaticProps() {
   // Google fetch
-  const response = await fetch(
-    `${YT_PL_API}?part=snippet&playlistId=${PL_ID}&maxResults=50&key=${process.env.YT_API}`
-  )
-  const data = await response.json()
-
-  const channelRes = await fetch(statisticsURL)
-  const channelInfo = await channelRes.json()
   const videosRes = await fetch(uploadsURL)
   const videosInfo = await videosRes.json()
 
   return {
     props: {
-      videos: data.items,
-      channelInfo: channelInfo.items,
       videosInfo: videosInfo,
     },
-    revalidate: 60,
+    revalidate: 43200,
   }
 }
 
-export default function Videos({ videos, channelInfo, videosInfo }) {
+export default function Videos({ videosInfo }) {
   // console.log(videosInfo)
   const [searchValue, setSearchValue] = useState("")
   const sortedVids = videosInfo.items
