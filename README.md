@@ -1,34 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Zento JPN Website
 
-## Getting Started
+Please view the live version of the website here: [Zento JPN Website](https://www.zento-jpn.com/)
 
-First, run the development server:
+### Introduction
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+This is a website for my Japanese language learning youtube channel. I made it just as a fun project to try out some different technologies and have a hub for my social accounts.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Technologies
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+I created this website using NextJS and it fetches blog posts from Contentful and videos and data from the YouTube API. this allowed me to simply create a page for every blog post based on the url slug, and display content that updates daily using static props.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Features to add
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Things to fix
+   ..\* image size consistency and file size
+2. Things to add
+   .._ make statistic numbers count up on homepage
+   .._ create mail form that goes direct to email

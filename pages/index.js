@@ -45,7 +45,12 @@ export async function getStaticProps() {
 
 export default function Home({ posts, channelInfo, videosInfo }) {
   const { statistics } = channelInfo[0]
-  const latest = videosInfo.items.length - 1
+  console.log(posts, videosInfo)
+  const sortedVideos = videosInfo.items.sort((a, b) =>
+    Number(
+      new Date(b.snippet.publishedAt) - Number(new Date(a.snippet.publishedAt))
+    )
+  )
   const sortedPosts = posts.sort((a, b) =>
     Number(new Date(b.sys.createdAt) - Number(new Date(a.sys.createdAt)))
   )
@@ -61,7 +66,7 @@ export default function Home({ posts, channelInfo, videosInfo }) {
       <main className={styles.main}>
         <Hero />
         <Stats statistics={statistics} />
-        <NewestVideo videoData={videosInfo.items[latest]} />
+        <NewestVideo videoData={sortedVideos[0]} />
         <NewestBlogPosts
           posts={[sortedPosts[0], sortedPosts[1], sortedPosts[2]]}
         />
