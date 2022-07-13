@@ -13,7 +13,7 @@ I created this website using NextJS and it fetches blog posts from Contentful an
 ### Features to add
 
 1. Things to fix
-   ..\* image size consistency and file size
+   - image size consistency and file size
 2. Things to add
-   .._ make statistic numbers count up on homepage
-   .._ create mail form that goes direct to email
+   - make statistic numbers count up on homepage
+   - create mail form that goes direct to email
